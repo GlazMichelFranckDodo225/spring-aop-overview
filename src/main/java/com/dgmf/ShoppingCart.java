@@ -4,7 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ShoppingCart {
-    // Logging
+    // Different Aspects :
+    // Logging (LoggingAspect)
     // Authentication & Authorization
     // Sanitize the Data
     public void checkout() {
