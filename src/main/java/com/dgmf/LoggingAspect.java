@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     // Méthodes du LoggingAspect
     @Before("execution(* com.dgmf.ShoppingCart.checkout())")
-    public void logger() {
+    public void beforeLogger() {
         System.out.println("Loggers ...");
     }
 }
