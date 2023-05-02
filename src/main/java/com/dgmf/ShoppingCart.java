@@ -8,7 +8,7 @@ public class ShoppingCart {
     // Logging (LoggingAspect)
     // Authentication & Authorization
     // Sanitize the Data
-    public void checkout() {
+    public void checkout(String status) {
         System.out.println("Checkout Method from ShoppingCart Called ...");
     }
 }
