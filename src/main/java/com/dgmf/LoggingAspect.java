@@ -1,5 +1,6 @@
 package com.dgmf;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,8 +11,11 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     // Méthodes du LoggingAspect
     @Before("execution(* com.dgmf.ShoppingCart.checkout(..))")
-    public void beforeLogger() {
-        System.out.println("Before Loggers ...");
+        public void beforeLogger(JoinPoint jp) {
+        System.out.println(jp.getSignature());
+        String joinPointArg = jp.getArgs()[0].toString();
+
+        System.out.println("Before Loggers with Argument : " + joinPointArg);
     }
 
     @After("execution(* *.*.*.checkout(..))")
