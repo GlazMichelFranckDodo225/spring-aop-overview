@@ -1,9 +1,7 @@
 package com.dgmf;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Aspect // Classe chargée du cross-cutting concern Loggin
@@ -21,5 +19,15 @@ public class LoggingAspect {
     @After("execution(* *.*.*.checkout(..))")
     public void afterLogger() {
         System.out.println("After Loggers ...");
+    }
+
+    @Pointcut("execution(* com.dgmf.ShoppingCart.quantity())")
+    public void afterReturningPointcut() {
+
+    }
+
+    @AfterReturning(pointcut = "afterReturningPointcut()", returning = "returnedValue")
+    public void afterReturning(String returnedValue) {
+        System.out.println("After Returning Value = " + returnedValue);
     }
 }

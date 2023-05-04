@@ -11,6 +11,7 @@ public class Main {
 
         // Récupération d'un Bean de Type ShoppingCart
         ShoppingCart cart = context.getBean(ShoppingCart.class);
-        cart.checkout("CANCELLED");
+        // cart.checkout("CANCELLED");
+        cart.quantity();
     }
 }
